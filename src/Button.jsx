@@ -1,8 +1,9 @@
-const Button = ({text}) => {
-  return (
-    
-    <button> {text} </button>
-  )
-  }
-
+function Button(props) { 
+  return ( 
+    <button onClick={props.onClick}> 
+      {props.children} 
+    </button> 
+  ); 
+} 
+ 
 export default Button;
