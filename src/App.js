@@ -1,24 +1,22 @@
-
-import React, { useState } from 'react'; 
-import Button from './Button';
-
-
+import React, { useState, useEffect } from 'react'; 
+ 
 function App() { 
-  const [count, setCount] = useState(0); 
+  const [data, setData] = useState([]); 
  
-  function incrementCount() { 
-    setCount(count + 1); 
-  } 
- 
-  function decrementCount() { 
-    setCount(count - 1); 
-  } 
+  useEffect(() => { 
+    fetch('https://jsonplaceholder.typicode.com/posts') 
+      .then(response => response.json()) 
+      .then(json => setData(json)); 
+  }, []); 
  
   return ( 
     <div> 
-      <h1>Count: {count}</h1> 
-      <Button onClick={incrementCount}>Increment</Button> 
-      <Button onClick={decrementCount}>Decrement</Button> 
+      <h1>Дані:</h1> 
+      <ul> 
+        {data.map(item => ( 
+          <li key={item.id}>{item.title}</li> 
+        ))} 
+      </ul> 
     </div> 
   ); 
 } 
