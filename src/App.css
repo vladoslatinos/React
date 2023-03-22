@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.component_a {
+  border: 3px solid #000;
+  margin: 1em;
+}
+.component_b {
+  border: 3px solid #000;
+  margin: 1em;
+}
+.component_c {
+  border: 3px solid #000;
+  margin: 1em;
+}
