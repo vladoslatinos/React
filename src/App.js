@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from 'react'; 
- 
-function App() { 
-  const [data, setData] = useState([]); 
- 
-  useEffect(() => { 
-    const fetchData = async () => { 
-      const response = await fetch('https://jsonplaceholder.typicode.com/posts'); 
-      const json = await response.json(); 
-      setData(json); 
-    }; 
-    fetchData(); 
-  }, []); 
- 
-  return ( 
-    <div> 
-      <h1>Дані:</h1> 
-      <ul> 
-        {data.map(item => ( 
-          <li key={item.id}>{item.title}</li> 
-        ))} 
-      </ul> 
-    </div> 
-  ); 
-} 
- 
+import React, { createContext, useState } from 'react';
+import ComponentA from './ComponentA';
+import './App.css';
+
+export const MyContext = createContext();
+
+function App() {
+  const data = useState('Hello from App');
+
+return (
+<div className="App">
+<MyContext.Provider value={data}>
+<ComponentA />
+</MyContext.Provider>
+</div>
+);
+}
+
 export default App;
